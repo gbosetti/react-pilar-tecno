@@ -1,14 +1,19 @@
 import React from 'react';
 
 export class Countries extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      someKey: 'someValue'
-    };
-  }
-
   render() {
-    return <p>Countries</p>;
+    return <div>
+      <h3>Countries</h3>
+      <ul>
+        {
+          this.props.countries.map(country => {
+            return <li key={country}>
+              {country}
+              <button onClick={() => this.props.delete(country)}>Eliminar</button>
+            </li>
+          })
+        }
+      </ul>
+    </div>;
   }
 }
